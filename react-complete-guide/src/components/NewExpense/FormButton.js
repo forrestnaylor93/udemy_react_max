@@ -1,10 +1,10 @@
 import './NewExpense.css';
 import React from 'react'
 
-const FormButton = () => {
+const FormButton = (props) => {
     return (
         <div className = 'new-expense'>
-            <button>Add Expense</button>
+            <button onClick = {props.toggleForm}>Add Expense</button>
         </div>
     )
 }

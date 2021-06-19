@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./NewExpense.css"
 import ExpenseForm from './ExpenseForm'
 import FormButton from './FormButton'
@@ -12,10 +12,28 @@ const NewExpense = (props) => {
         //console.log(expenseData)
         props.onAddExpense(expenseData)
     }
+
+    const [formActive, setFormActive] = useState(false);
+
+    const toggleFormHandler = ()=>{
+        console.log('toggling the form!')
+        if(formActive){
+            setFormActive(false);
+        }else{
+            setFormActive(true);
+        }
+        
+    }
+
+
     return (
         <div className = "new-expense">
-        <FormButton />
-        <ExpenseForm onSaveExpenseData = {saveExpenseDataHandler} />
+
+
+        {formActive && <ExpenseForm onSaveExpenseData = {saveExpenseDataHandler} toggleForm = {toggleFormHandler} />}
+        {!formActive && <button onClick = {toggleFormHandler}> Add New Expense</button>}
+        
+        
         </div>
     )
 }

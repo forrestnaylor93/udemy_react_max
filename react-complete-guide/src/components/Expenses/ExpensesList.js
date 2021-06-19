@@ -8,7 +8,6 @@ const ExpensesList = (props) => {
       return <h2 className = "expenses-list__fallback">Found no expenses</h2>
   } 
 
-  console.log(props.filteredList);
   return (
     <ul className="expenses-list">
       {props.filteredList.map((expense) => {
